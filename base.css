@@ -1,11 +1,12 @@
-.box__input {
+.box_input {
     width: 15rem;
     height: 2rem;
     border: 0.025rem solid lightblue;
     box-shadow: 0.125rem 0.125rem 0.125rem lightblue;
     border-radius: 1.875rem 1.875rem 1.875rem;
+    text-align: center;
 }
-.box__resultado {
+.box_resultado {
     width: 19rem;
     height: 13rem;
     border: 5px solid lightblue;

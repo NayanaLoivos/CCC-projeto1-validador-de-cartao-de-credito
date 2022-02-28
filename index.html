@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Validador de cartão</title>
     <link rel="stylesheet" href="base.css">
-    <link href="">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,12 +15,16 @@
     </header>
 
         <form>
-            <input type="text" class="box__input">
-            <input type="button" value="Validar">
+            <input type="text" class="box_input" id="boxInputDigitosCartao" placeholder="Digite os dígitos do cartão">
+            <input type="button" id="validarNumeroDocartao" value="Validar">
             <p><input type="button" value="Validar outro cartão"></p>
-
         </form>
-    <div class="box__resultado"></div>
+
+    <section class="box_resultado">
+        <p id="exibirONumeroDoCartao"></p>
+        <p id="exibirMensagemDeValidacao"></p>
+    </section>
+
 
 
 
