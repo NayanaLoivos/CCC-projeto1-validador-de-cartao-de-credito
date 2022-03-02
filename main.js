@@ -1,97 +1,115 @@
 
-    //Criando referencia do conteudo da pagina
-    let digitosDoCartao = document.querySelector('#boxInputDigitosCartao');
+    //Criando referencias do conteudo da pagina
+    let digitosInformadosDoCartao = document.querySelector('#boxInputDigitosCartao');
+    let validarDigitosInformadosDoCartao = document.querySelector('#validarNumeroDocartao');
 
     //Array digitos do cartão
-    let arrayInversaDigitosDoCartao = [];
+    let digitosInformadosDoCartaoInvertidos = [];
 
     //Array base do codigo
-    let arrayPosicaoParDaArrayInversaDigitosDoCartao = [];
+    let numerosDeIndexesParesMultiplicadosPor2 = [];
 
     //Arrays necessarios para a uniao de novos digitos
-    let arrayPosicaoImparDaArrayInversaDigitosDoCartao = [];
-    let arrayPosicaoParMenor10 = [];
-    let arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao = [];
+    let numerosDeIndexesImparesMantidos = [];
+    let numerosAte9EncontradosAoMultiplicarPor2 = [];
+    let numerosAPartirde10EncontradosAoMultiplicarPor2 = [];
 
     //Arrays novos digitos
-    let concatenandoOsNovosDigitosDocartao = [];
+    let concatenandoAManipulacaoDeDigitos = [];
+    
+    //Total dos novos digitos
+    let somandoAManipulacaoDeDigitos = 0;
 
-    let novosDigitosSomados = 0;
 
+    function capturarNumeroDigitadosDoCartao () {
 
-    function exibirDigitosDoCartao () {
-        let valorDigitosDoCartao = digitosDoCartao.value;
+        let valorDigitosDoCartao = digitosInformadosDoCartao.value;
 
         let exibirNumeroDoCartao = document.querySelector('#exibirONumeroDoCartao');
         exibirNumeroDoCartao.textContent = valorDigitosDoCartao;
     }
 
-    function obterArrayInversaDoNumeroDoCartao () {
+    function obterDigitosInversoDoCartao () {
 
-        for(let i = digitosDoCartao.value.length - 1; i >= 0; i--){
-            arrayInversaDigitosDoCartao.push(digitosDoCartao.value[i]);
+        for(let i = digitosInformadosDoCartao.value.length - 1; i >= 0; i--) {
+            digitosInformadosDoCartaoInvertidos.push(digitosInformadosDoCartao.value[i]);
         }
-        console.log(arrayInversaDigitosDoCartao); //testar
+
+        console.log(digitosInformadosDoCartaoInvertidos); //testar
     }
 
-    function obterArrayIndexParVezes2 () {
-        for(let i = 0; i < arrayInversaDigitosDoCartao.length; i++) {
+    function obterMultiplicacaoPor2DosNumerosDeIndexesParesMantendoOsNumerosDeIndexesImpares () {
+
+        for(let i = 0; i < digitosInformadosDoCartaoInvertidos.length; i++) {
+
             if (i % 2 === 0 && i !== 0) {
-                let posicao = arrayInversaDigitosDoCartao[i];
-                arrayPosicaoParDaArrayInversaDigitosDoCartao.push(posicao * (2));
+                let posicao = digitosInformadosDoCartaoInvertidos[i];
+                numerosDeIndexesParesMultiplicadosPor2.push(posicao * (2));
 
             }else {
-                let posicao = arrayInversaDigitosDoCartao[i];
-                arrayPosicaoImparDaArrayInversaDigitosDoCartao.push(posicao);
-            }
-
-        }
-        console.log(arrayPosicaoParDaArrayInversaDigitosDoCartao); //testar
-        console.log(arrayPosicaoImparDaArrayInversaDigitosDoCartao); //testar        c
-    }
-
-    function arrayPosicaoParMenorQue10 () {
-        for(let i =0; i < arrayPosicaoParDaArrayInversaDigitosDoCartao.length; i++) {
-            if(arrayPosicaoParDaArrayInversaDigitosDoCartao[i] < 10) {
-                let posicao = arrayPosicaoParDaArrayInversaDigitosDoCartao[i];
-                arrayPosicaoParMenor10.push(posicao);
+                let posicao = digitosInformadosDoCartaoInvertidos[i];
+                numerosDeIndexesImparesMantidos.push(posicao);
             }
         }
-        console.log(arrayPosicaoParMenor10);
+
+        console.log(numerosDeIndexesParesMultiplicadosPor2); //testar
+        console.log(numerosDeIndexesImparesMantidos); //testar        c
     }
 
-    function obterArrayDeIndexParVezes2MaioresQue9 () {
-        for(let i = 0; i < arrayPosicaoParDaArrayInversaDigitosDoCartao.length; i++){
-            if(arrayPosicaoParDaArrayInversaDigitosDoCartao[i] > 9) {
-                let posicao = arrayPosicaoParDaArrayInversaDigitosDoCartao[i];
-                arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao.push(1 + (posicao - 10));
+    function obterNumerosAte9DaArrayDeIndexesPares () {
+
+        for(let i =0; i < numerosDeIndexesParesMultiplicadosPor2.length; i++) {
+
+            if(numerosDeIndexesParesMultiplicadosPor2[i] < 10) {
+                let posicao = numerosDeIndexesParesMultiplicadosPor2[i];
+                numerosAte9EncontradosAoMultiplicarPor2.push(posicao);
             }
         }
-        console.log(arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao); //testar
+
+        console.log(numerosAte9EncontradosAoMultiplicarPor2); //testar
     }
 
-    function UnirNovosDigitosDoCartao () {
-        concatenandoOsNovosDigitosDocartao = [...arrayPosicaoImparDaArrayInversaDigitosDoCartao, ...arrayPosicaoParMenor10, ...arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao];
-        console.log(concatenandoOsNovosDigitosDocartao) //testar
-    }
+    function obterNumerosAPartirDe10DaArrayDeIndexesPares () {
 
-    function somandoOsNovosDigitos () {
-        for(let i =0; i < concatenandoOsNovosDigitosDocartao.length; i++) {
-            novosDigitosSomados = novosDigitosSomados + Number(concatenandoOsNovosDigitosDocartao[i]);
+        for(let i = 0; i < numerosDeIndexesParesMultiplicadosPor2.length; i++) {
+
+            if(numerosDeIndexesParesMultiplicadosPor2[i] > 9) {
+                let posicao = numerosDeIndexesParesMultiplicadosPor2[i];
+                numerosAPartirde10EncontradosAoMultiplicarPor2.push(1 + (posicao - 10));
+            }
         }
-        console.log(novosDigitosSomados);
+
+        console.log(numerosAPartirde10EncontradosAoMultiplicarPor2); //testar
     }
 
-    let validarDigitosDoCartao = document.querySelector('#validarNumeroDocartao');
+    function UnirNovosDigitosManipulados () {
 
-        validarDigitosDoCartao.addEventListener('click',function () {
-            exibirDigitosDoCartao();
-            obterArrayInversaDoNumeroDoCartao();
-            obterArrayIndexParVezes2();
-            arrayPosicaoParMenorQue10();
-            obterArrayDeIndexParVezes2MaioresQue9();
-            UnirNovosDigitosDoCartao();
-            somandoOsNovosDigitos();
+        concatenandoAManipulacaoDeDigitos = [...numerosDeIndexesImparesMantidos, ...numerosAte9EncontradosAoMultiplicarPor2, ...numerosAPartirde10EncontradosAoMultiplicarPor2];
+
+        console.log(concatenandoAManipulacaoDeDigitos) //testar
+    }
+
+    function somarOsNovosDigitosManipulados () {
+
+        for(let i =0; i < concatenandoAManipulacaoDeDigitos.length; i++) {
+            somandoAManipulacaoDeDigitos = somandoAManipulacaoDeDigitos + Number(concatenandoAManipulacaoDeDigitos[i]);
+        }
+        console.log(somandoAManipulacaoDeDigitos);
+    }
+
+    
+
+
+    //funcao de excucao
+    validarDigitosInformadosDoCartao.addEventListener('click',function () {
+
+        capturarNumeroDigitadosDoCartao();
+        obterDigitosInversoDoCartao();
+        obterMultiplicacaoPor2DosNumerosDeIndexesParesMantendoOsNumerosDeIndexesImpares();
+        obterNumerosAte9DaArrayDeIndexesPares();
+        obterNumerosAPartirDe10DaArrayDeIndexesPares();
+        UnirNovosDigitosManipulados();
+        somarOsNovosDigitosManipulados();
         });
 
 
