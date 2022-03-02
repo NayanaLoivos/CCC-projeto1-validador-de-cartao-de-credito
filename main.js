@@ -3,6 +3,9 @@
     let digitosInformadosDoCartao = document.querySelector('#boxInputDigitosCartao');
     let validarDigitosInformadosDoCartao = document.querySelector('#validarNumeroDocartao');
 
+    let exibirNumeroDoCartao = document.querySelector('#exibirONumeroDoCartao');
+    let exibirMensagemDeValidacao = document.querySelector('#exibirMensagemDeValidacao');
+
     //Array digitos do cartão
     let digitosInformadosDoCartaoInvertidos = [];
 
@@ -23,10 +26,9 @@
 
     function capturarNumeroDigitadosDoCartao () {
 
-        let valorDigitosDoCartao = digitosInformadosDoCartao.value;
+        let digitosDoCartao = digitosInformadosDoCartao.value;
 
-        let exibirNumeroDoCartao = document.querySelector('#exibirONumeroDoCartao');
-        exibirNumeroDoCartao.textContent = valorDigitosDoCartao;
+        exibirNumeroDoCartao.textContent = digitosDoCartao;
     }
 
     function obterDigitosInversoDoCartao () {
@@ -53,7 +55,7 @@
         }
 
         console.log(numerosDeIndexesParesMultiplicadosPor2); //testar
-        console.log(numerosDeIndexesImparesMantidos); //testar        c
+        console.log(numerosDeIndexesImparesMantidos); //testar        
     }
 
     function obterNumerosAte9DaArrayDeIndexesPares () {
@@ -94,10 +96,17 @@
         for(let i =0; i < concatenandoAManipulacaoDeDigitos.length; i++) {
             somandoAManipulacaoDeDigitos = somandoAManipulacaoDeDigitos + Number(concatenandoAManipulacaoDeDigitos[i]);
         }
-        console.log(somandoAManipulacaoDeDigitos);
+        console.log(somandoAManipulacaoDeDigitos); //testar
     }
 
-    
+    function compararAValidadeDoCartaoInformado () {
+
+        if(somandoAManipulacaoDeDigitos % 10 === 0) {
+            exibirMensagemDeValidacao.innerText = 'Cartão de numeração VÁLIDA!';
+        }else {
+            exibirMensagemDeValidacao.innerText = 'cartão de numeração INVÁLIDA!'
+        }
+    }
 
 
     //funcao de excucao
@@ -110,6 +119,7 @@
         obterNumerosAPartirDe10DaArrayDeIndexesPares();
         UnirNovosDigitosManipulados();
         somarOsNovosDigitosManipulados();
+        compararAValidadeDoCartaoInformado();
         });
 
 
