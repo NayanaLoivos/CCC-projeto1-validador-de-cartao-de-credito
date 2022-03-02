@@ -10,10 +10,10 @@
     let digitosInformadosDoCartaoInvertidos = [];
 
     //Array base do codigo
-    let numerosDeIndexesParesMultiplicadosPor2 = [];
+    let numerosDeIndexesImparesMultiplicadosPor2 = [];
 
     //Arrays necessarios para a uniao de novos digitos
-    let numerosDeIndexesImparesMantidos = [];
+    let numerosDeIndexesParesMantidos = [];
     let numerosAte9EncontradosAoMultiplicarPor2 = [];
     let numerosAPartirde10EncontradosAoMultiplicarPor2 = [];
 
@@ -40,30 +40,30 @@
         console.log(digitosInformadosDoCartaoInvertidos); //testar
     }
 
-    function obterMultiplicacaoPor2DosNumerosDeIndexesParesMantendoOsNumerosDeIndexesImpares () {
+    function obterMultiplicacaoPor2DosNumerosDeIndexesImparesMantendoOsNumerosDeIndexesPares () {
 
         for(let i = 0; i < digitosInformadosDoCartaoInvertidos.length; i++) {
 
-            if (i % 2 === 0 && i !== 0) {
+            if (i % 2 === 1) {
                 let posicao = digitosInformadosDoCartaoInvertidos[i];
-                numerosDeIndexesParesMultiplicadosPor2.push(posicao * (2));
+                numerosDeIndexesImparesMultiplicadosPor2.push(posicao * (2));
 
             }else {
                 let posicao = digitosInformadosDoCartaoInvertidos[i];
-                numerosDeIndexesImparesMantidos.push(posicao);
+                numerosDeIndexesParesMantidos.push(posicao);
             }
         }
 
-        console.log(numerosDeIndexesParesMultiplicadosPor2); //testar
-        console.log(numerosDeIndexesImparesMantidos); //testar        
+        console.log(numerosDeIndexesImparesMultiplicadosPor2); //testar
+        console.log(numerosDeIndexesParesMantidos); //testar
     }
 
     function obterNumerosAte9DaArrayDeIndexesPares () {
 
-        for(let i =0; i < numerosDeIndexesParesMultiplicadosPor2.length; i++) {
+        for(let i =0; i < numerosDeIndexesImparesMultiplicadosPor2.length; i++) {
 
-            if(numerosDeIndexesParesMultiplicadosPor2[i] < 10) {
-                let posicao = numerosDeIndexesParesMultiplicadosPor2[i];
+            if(numerosDeIndexesImparesMultiplicadosPor2[i] < 10) {
+                let posicao = numerosDeIndexesImparesMultiplicadosPor2[i];
                 numerosAte9EncontradosAoMultiplicarPor2.push(posicao);
             }
         }
@@ -73,10 +73,10 @@
 
     function obterNumerosAPartirDe10DaArrayDeIndexesPares () {
 
-        for(let i = 0; i < numerosDeIndexesParesMultiplicadosPor2.length; i++) {
+        for(let i = 0; i < numerosDeIndexesImparesMultiplicadosPor2.length; i++) {
 
-            if(numerosDeIndexesParesMultiplicadosPor2[i] > 9) {
-                let posicao = numerosDeIndexesParesMultiplicadosPor2[i];
+            if(numerosDeIndexesImparesMultiplicadosPor2[i] > 9) {
+                let posicao = numerosDeIndexesImparesMultiplicadosPor2[i];
                 numerosAPartirde10EncontradosAoMultiplicarPor2.push(1 + (posicao - 10));
             }
         }
@@ -86,7 +86,7 @@
 
     function UnirNovosDigitosManipulados () {
 
-        concatenandoAManipulacaoDeDigitos = [...numerosDeIndexesImparesMantidos, ...numerosAte9EncontradosAoMultiplicarPor2, ...numerosAPartirde10EncontradosAoMultiplicarPor2];
+        concatenandoAManipulacaoDeDigitos = [...numerosDeIndexesParesMantidos, ...numerosAte9EncontradosAoMultiplicarPor2, ...numerosAPartirde10EncontradosAoMultiplicarPor2];
 
         console.log(concatenandoAManipulacaoDeDigitos) //testar
     }
@@ -114,7 +114,7 @@
 
         capturarNumeroDigitadosDoCartao();
         obterDigitosInversoDoCartao();
-        obterMultiplicacaoPor2DosNumerosDeIndexesParesMantendoOsNumerosDeIndexesImpares();
+        obterMultiplicacaoPor2DosNumerosDeIndexesImparesMantendoOsNumerosDeIndexesPares();
         obterNumerosAte9DaArrayDeIndexesPares();
         obterNumerosAPartirDe10DaArrayDeIndexesPares();
         UnirNovosDigitosManipulados();
