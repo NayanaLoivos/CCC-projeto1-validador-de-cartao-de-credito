@@ -1,11 +1,22 @@
 
+    //Criando referencia do conteudo da pagina
     let digitosDoCartao = document.querySelector('#boxInputDigitosCartao');
+
+    //Array digitos do cartão
     let arrayInversaDigitosDoCartao = [];
+
+    //Array base do codigo
     let arrayPosicaoParDaArrayInversaDigitosDoCartao = [];
-    let arrayPosicaoParMenor10 = [];
+
+    //Arrays necessarios para a uniao de novos digitos
     let arrayPosicaoImparDaArrayInversaDigitosDoCartao = [];
+    let arrayPosicaoParMenor10 = [];
     let arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao = [];
-    let concatenandoOsNovosDigitosDocartao;
+
+    //Arrays novos digitos
+    let concatenandoOsNovosDigitosDocartao = [];
+
+    let novosDigitosSomados = 0;
 
 
     function exibirDigitosDoCartao () {
@@ -15,7 +26,7 @@
         exibirNumeroDoCartao.textContent = valorDigitosDoCartao;
     }
 
-    function obterArrayInversaDoNumeroDoCartao (){
+    function obterArrayInversaDoNumeroDoCartao () {
 
         for(let i = digitosDoCartao.value.length - 1; i >= 0; i--){
             arrayInversaDigitosDoCartao.push(digitosDoCartao.value[i]);
@@ -59,6 +70,17 @@
         console.log(arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao); //testar
     }
 
+    function UnirNovosDigitosDoCartao () {
+        concatenandoOsNovosDigitosDocartao = [...arrayPosicaoImparDaArrayInversaDigitosDoCartao, ...arrayPosicaoParMenor10, ...arrayDeNumerosMaioresQue9DaArrayPosicaoParDaArrayInversaDigitosDoCartao];
+        console.log(concatenandoOsNovosDigitosDocartao) //testar
+    }
+
+    function somandoOsNovosDigitos () {
+        for(let i =0; i < concatenandoOsNovosDigitosDocartao.length; i++) {
+            novosDigitosSomados = novosDigitosSomados + Number(concatenandoOsNovosDigitosDocartao[i]);
+        }
+        console.log(novosDigitosSomados);
+    }
 
     let validarDigitosDoCartao = document.querySelector('#validarNumeroDocartao');
 
@@ -68,7 +90,10 @@
             obterArrayIndexParVezes2();
             arrayPosicaoParMenorQue10();
             obterArrayDeIndexParVezes2MaioresQue9();
+            UnirNovosDigitosDoCartao();
+            somandoOsNovosDigitos();
         });
+
 
 
 
