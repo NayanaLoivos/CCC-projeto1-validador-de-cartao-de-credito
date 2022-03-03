@@ -1,26 +1,97 @@
-.caixa {
-    background-color:azure;
-    width: 100vw;
-    height: 70vw;
-    padding: 10vw;
-}
-.box_input {
-    width: 15rem;
-    height: 2rem;
-    border: 0.025rem solid lightblue;
-    box-shadow: 0.125rem 0.125rem 0.125rem lightblue;
-    border-radius: 1.875rem 1.875rem 1.875rem;
-    text-align: center;
-}
-.box_resultado {
-    background-color: black;
-    color: white;
-    width: 19rem;
-    height: 13rem;
-    border: 5px solid lightblue;
-    box-shadow: 5px 5px 7px lightblue;
-    border-radius: 1.875rem 1.875rem 1.875rem;
-    text-align: center;
-    text-shadow: 0px 1px lightblue;
-    font-size: 25px;
-}
+    /* Mobile First */
+    body {
+        font-family: 'Open Sans', 'icones', sans-serif;
+    }
+
+    .cabecalho {
+        align-items: center;
+        background: #00cc99;
+        color: #f1f1f1;
+        box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0.16);
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+     main {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .caixa {
+        background-color: azure;
+        padding: 2rem;
+
+    }
+
+    .box-input-digitos {
+        width: 15rem;
+        height: 2rem;
+        border: 0.025rem solid lightblue;
+        box-shadow: 0.125rem 0.125rem 0.125rem lightblue;
+        border-radius: 1.875rem 1.875rem 1.875rem;
+        text-align: center;
+        margin: 0 0 1rem 0;
+    }
+
+    .botao-validar {
+        background: cadetblue;
+        color: #f1f1f1;
+        height: 2rem;
+        border: 0.025rem solid lightblue;
+        box-shadow: 0.125rem 0.125rem 0.125rem lightblue;
+        border-radius: 1.875rem 1.875rem 1.875rem;
+        text-align: center;
+        text-transform: lowercase;
+        font-weight: bold;
+    }
+
+    .box-resultado {
+        background-image: linear-gradient(lightblue, black);
+        color: white;
+        width: 18rem;
+        height: 12rem;
+        border: 5px solid lightblue;
+        box-shadow: 5px 5px 7px lightblue;
+        border-radius: 1.875rem 1.875rem 1.875rem;
+        text-align: center;
+        text-shadow: 0px 1px lightblue;
+        font-size: 25px;
+        margin: auto;
+    }
+
+    .box-resultado__cartao, .box-resultado__validador {
+        padding: 1.5rem 1rem;
+    }
+
+    .sobre {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre-título {
+        font-weight: bold;
+        font-size: 2rem;
+        text-shadow: 0.130rem 0.130rem 0.130rem cadetblue;
+        margin-top: 1rem;
+    }
+
+    .sobre-subtitulo {
+        margin: 2rem;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .rodape {
+        background: #0099ff;
+        color: #f1f1f1;
+        height: 2.5vh;
+        padding-top: 1rem;
+        text-align: center;
+        margin-top: 1rem;
+    }

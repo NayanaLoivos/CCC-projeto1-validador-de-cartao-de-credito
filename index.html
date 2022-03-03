@@ -5,29 +5,44 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Validador de cartão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="base.css">
     <script src="main.js" defer></script>
+    <script src="index.js"></script>
 </head>
 <body>
-    <header>
-           <h1>Validador de cartão de crédito</h1>
-            <h2>Nunca foi tão fácil!</h2>        
+
+    <header class="cabecalho">
+        <h1>validar cartão de crédito</h1>
     </header>
+
+    <main>
         <div class="caixa">
             <form>
-                <input type="text" class="box_input" id="boxInputDigitosCartao" maxlength="16" placeholder="Digite os dígitos do cartão">
-                <input type="button" id="validarNumeroDocartao" value="Validar">
-                <p><input type="button" value="Validar outro cartão"></p>
+                <input type="text" class="box-input-digitos" id="boxInputDigitosCartao" maxlength="16" placeholder="Digite os dígitos do cartão">
+                <input type="button" class ="botao-validar" id="validarNumeroDocartao" value="Validar">
             </form>
 
-            <section class="box_resultado">
-                <p id="exibirONumeroDoCartao"></p>
-                <p id="exibirMensagemDeValidacao"></p>
+            <section class="box-resultado">
+                <p class="box-resultado__cartao" id="exibirONumeroDoCartao"></p>
+                <p class="box-resultado__validador" id="exibirMensagemDeValidacao"></p>
             </section>
         </div>
+        <article class="sobre">
+            <h2 class="sobre-título">Algoritmo de Luhn</h2>
 
+            <h4 class="sobre-subtitulo"> Você imagina como são gerados os dígitos de um cartão de crédito? </h4>
+            <p class="sobre_text">
 
+            </p>
+        </article>
 
+    </main>
+
+<footer class="rodape">&copy;Nayana Loivos</footer>
 
 </body>
 </html>
