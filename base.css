@@ -85,6 +85,13 @@
         margin: 2rem;
         text-align: center;
         font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .sobre_text {
+        margin: 1rem;
+        text-align: justify-all;
+        font-size: 1.3rem;
     }
 
     .rodape {
